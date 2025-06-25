@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2 class="mb-4">Create User</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label class="form-label">Username</label>
+    <input required name="username" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input required type="email" name="email" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Password</label>
+    <input required type="password" name="password" class="form-control">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Role</label>
+    <select name="role" class="form-select">
+      {% for r in roles %}
+        <option value="{{ r.name }}">{{ r.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button class="btn btn-primary">Create</button>
+  <a href="{{ url_for('admin.list_users') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

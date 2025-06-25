@@ -1,0 +1,29 @@
+<!-- app/templates/create_appointment.html -->
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Schedule New Appointment</h2>
+  <form method="POST" action="{{ url_for('appointments.create_appointment') }}">
+    <div class="mb-3">
+      <label for="patient_id" class="form-label">Patient</label>
+      <select class="form-select" name="patient_id" required>
+        <option value="" disabled selected>Select patient</option>
+        {% for patient in patients %}
+        <option value="{{ patient.id }}">{{ patient.name }} (Age: {{ patient.age }})</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="appointment_date" class="form-label">Appointment Date</label>
+      <input type="date" class="form-control" name="appointment_date" required>
+    </div>
+    <div class="mb-3">
+      <label for="reason" class="form-label">Reason (optional)</label>
+      <textarea class="form-control" name="reason" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Schedule Appointment</button>
+    <a href="{{ url_for('appointments.appointments') }}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}

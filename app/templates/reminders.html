@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+<h3>Simulate Appointment Reminders</h3>
+<p class="text-muted">Use this interface to simulate sending SMS or WhatsApp reminders for upcoming appointments.</p>
+
+<form method="POST" action="{{ url_for('reminders.send') }}">
+  <div class="card shadow-sm p-4 mb-3" style="max-width: 600px;">
+    <div class="mb-3">
+      <label for="channel" class="form-label">Channel</label>
+      <select class="form-select" name="channel" required>
+        <option value="sms">SMS</option>
+        <option value="whatsapp">WhatsApp</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="message" class="form-label">Message Preview</label>
+      <textarea class="form-control" name="message" rows="3" placeholder="Reminder: You have an ANC appointment tomorrow at 10am." required></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">
+      <i class="bi bi-broadcast-pin"></i> Simulate Sending
+    </button>
+  </div>
+</form>
+{% endblock %}

@@ -1,0 +1,179 @@
+<!-- app/templates/dashboard.html-->
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container-fluid mt-4">
+    <h2 class="mb-4 fw-bold">📊 Dashboard Overview</h2>
+
+    <!-- Summary Cards -->
+    <!-- 📊 Key Statistics Overview -->
+    <div class="container mt-4">
+    <div class="row g-3 text-center">
+        <div class="col-md-3">
+        <div class="card shadow-sm border-0 bg-light h-100">
+            <div class="card-body">
+            <h6 class="text-muted">Total Patients</h6>
+            <h2 class="fw-bold">{{ key_stats.total_patients }}</h2>
+            </div>
+        </div>
+        </div>
+        <div class="col-md-3">
+        <div class="card shadow-sm border-0 bg-light h-100">
+            <div class="card-body">
+            <h6 class="text-muted">ANC Completion Rate</h6>
+            <h2 class="fw-bold">{{ key_stats.completion_rate }}%</h2>
+            </div>
+        </div>
+        </div>
+        <div class="col-md-3">
+        <div class="card shadow-sm border-0 bg-light h-100">
+            <div class="card-body">
+            <h6 class="text-muted">Monthly Visits</h6>
+            <h2 class="fw-bold">{{ key_stats.monthly_visits }}</h2>
+            </div>
+        </div>
+        </div>
+        <div class="col-md-3">
+        <div class="card shadow-sm border-0 bg-light h-100">
+            <div class="card-body">
+            <h6 class="text-muted">SMS Engagement</h6>
+            <h2 class="fw-bold">{{ key_stats.sms_engagement }}</h2>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Charts + Filters -->
+    <div class="row g-4">
+        <!-- Risk Category Distribution Bar Chart -->
+        <div class="col-lg-6">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h6 class="card-title fw-bold mb-3">Risk Level Distribution</h6>
+                    <canvas id="riskChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Monthly ANC Attendance Line Chart -->
+        <div class="col-lg-6">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h6 class="card-title fw-bold mb-3">Monthly ANC Attendance (Visits vs Target)</h6>
+                    <canvas id="monthlyANCChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activity Feed -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <h6 class="card-title fw-bold mb-3">Recent Activity Feed</h6>
+                    <div id="activityFeed" style="height: 250px; overflow-y: auto; border: 1px solid #dee2e6; padding: 10px; border-radius: 5px;">
+                        <!-- TODO: dynamically load recent patient interactions here -->
+                        <p class="text-muted">No recent activity available.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Required CDNs -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Risk Level Bar Chart (Low, Medium, High)
+    const riskChart = new Chart(document.getElementById('riskChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Low', 'Medium', 'High'],
+            datasets: [{
+                label: 'Number of Patients',
+                data: [
+                    {{ risk_data['Low'] }},
+                    {{ risk_data['Medium'] }},
+                    {{ risk_data['High'] }}
+                ],
+                backgroundColor: ['#198754', '#ffc107', '#dc3545'],
+                borderRadius: 5,
+                maxBarThickness: 50
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: { display: true, text: 'Patients' }
+                },
+                x: {
+                    title: { display: true, text: 'Risk Level' }
+                }
+            },
+            plugins: {
+                legend: { display: false }
+            }
+        }
+    });
+
+    // Monthly ANC Attendance Line Chart (Visits vs Target)
+    const monthlyANCChart = new Chart(document.getElementById('monthlyANCChart'), {
+        type: 'line',
+        data: {
+            labels: {{ months | tojson }},
+            datasets: [
+                {
+                    label: 'Visits',
+                    data: {{ visit_counts | tojson }},
+                    fill: false,
+                    borderColor: '#0d6efd',
+                    backgroundColor: '#0d6efd',
+                    tension: 0.3,
+                    pointRadius: 4,
+                    pointHoverRadius: 7
+                },
+                {
+                    label: 'Target',
+                    data: {{ targets | tojson }},
+                    fill: false,
+                    borderColor: '#198754',
+                    borderDash: [5, 5],
+                    backgroundColor: '#198754',
+                    tension: 0.3,
+                    pointRadius: 0,
+                    pointHoverRadius: 0
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            interaction: {
+                mode: 'index',
+                intersect: false
+            },
+            stacked: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: { display: true, text: 'Number of Visits' }
+                },
+                x: {
+                    title: { display: true, text: 'Month' }
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+
+    // TODO: Add dynamic fetching and rendering for Recent Activity Feed (optional)
+</script>
+{% endblock %}

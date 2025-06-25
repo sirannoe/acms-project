@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<h3>Edit User: {{ user.username }}</h3>
+<form method="POST">
+  <div class="card shadow-sm p-4 mb-4" style="max-width: 600px;">
+    <div class="mb-3">
+      <label class="form-label">Username</label>
+      <input name="username" class="form-control" value="{{ user.username }}" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input name="email" type="email" class="form-control" value="{{ user.email }}" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Role</label>
+      <select name="role" class="form-select">
+        <option value="Admin" {% if user.role == 'Admin' %}selected{% endif %}>Admin</option>
+        <option value="DataOfficer" {% if user.role == 'DataOfficer' %}selected{% endif %}>DataOfficer</option>
+        <option value="Clinician" {% if user.role == 'Clinician' %}selected{% endif %}>Clinician</option>
+      </select>
+    </div>
+    <button class="btn btn-success"><i class="bi bi-save"></i> Save Changes</button>
+  </div>
+</form>
+{% endblock %}

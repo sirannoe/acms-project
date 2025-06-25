@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2 class="mb-4">Reports</h2>
+
+<div class="row g-4">
+  <div class="col-md-4">
+    <div class="card shadow-sm">
+      <div class="card-body text-center">
+        <h5 class="card-title">Patients (CSV)</h5>
+        <p class="card-text">{{ total_patients }} total patients</p>
+        <a href="{{ url_for('reports.patients_csv') }}" class="btn btn-outline-primary">Download</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card shadow-sm">
+      <div class="card-body text-center">
+        <h5 class="card-title">Appointments (CSV)</h5>
+        <p class="card-text">{{ total_appointments }} appointments</p>
+        <a href="{{ url_for('reports.appointments_csv') }}" class="btn btn-outline-primary">Download</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card shadow-sm">
+      <div class="card-body text-center">
+        <h5 class="card-title">High-risk Patients (CSV)</h5>
+        <p class="card-text">{{ high_risk }} high-risk cases</p>
+        <a href="{{ url_for('reports.high_risk_csv') }}" class="btn btn-outline-danger">Download</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

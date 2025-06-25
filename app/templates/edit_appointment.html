@@ -1,0 +1,48 @@
+<!-- app/templates/edit_appointment.html -->
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Edit Appointment</h2>
+  <form method="POST" action="{{ url_for('appointments.edit_appointment', id=appointment.id) }}">
+    <div class="mb-3">
+      <label for="patient_id" class="form-label">Patient</label>
+      <select class="form-select" name="patient_id" required>
+        {% for patient in patients %}
+        <option value="{{ patient.id }}" {% if patient.id == appointment.patient_id %}selected{% endif %}>
+          {{ patient.name }} (Age: {{ patient.age }})
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="appointment_date" class="form-label">Appointment Date</label>
+      <input
+        type="date"
+        class="form-control"
+        name="appointment_date"
+        required
+        value="{{ appointment.appointment_date.strftime('%Y-%m-%d') }}"
+      >
+    </div>
+
+    <div class="mb-3">
+      <label for="reason" class="form-label">Reason (optional)</label>
+      <textarea class="form-control" name="reason" rows="3">{{ appointment.reason }}</textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="status" class="form-label">Status</label>
+      <select class="form-select" name="status" required>
+        <option value="Scheduled" {% if appointment.status == 'Scheduled' %}selected{% endif %}>Scheduled</option>
+        <option value="Confirmed" {% if appointment.status == 'Confirmed' %}selected{% endif %}>Confirmed</option>
+        <option value="Pending" {% if appointment.status == 'Pending' %}selected{% endif %}>Pending</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Update Appointment</button>
+    <a href="{{ url_for('appointments.appointments') }}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}

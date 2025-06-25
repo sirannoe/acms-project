@@ -1,0 +1,31 @@
+name,age,phone,address,lmp_date,emergency_contact_name,emergency_contact_phone,gestational_age,risk_level,visit_count,next_appointment
+Tsitsi Dube,18,+263 77 1301896,"Mkoba 6, Gweru",2025-04-26,Tatenda Tshuma,+263 71 5814836,4.9,Moderate,7,2025-06-10
+Simba Dube,37,+263 77 7089227,"Highfield, Harare",2025-04-07,Chenai Makoni,+263 71 6659437,7.6,Low,8,2025-06-13
+Tendai Chiwenga,40,+263 77 3377409,"Cowdray Park, Bulawayo",2025-03-10,Rutendo Sibanda,+263 71 4381144,11.6,High,6,2025-06-29
+Tendai Moyo,27,+263 77 4258095,"Waterfalls, Harare",2024-11-10,Simba Chiwenga,+263 71 7114421,28.7,Moderate,6,2025-06-25
+Nyasha Dube,30,+263 77 3336147,"Zimre Park, Ruwa",2024-11-26,Ruvimbo Sibanda,+263 71 3110044,26.4,High,5,2025-06-17
+Tatenda Tshuma,23,+263 77 2028110,"Unit L Seke, Chitungwiza",2025-02-09,Tendai Dube,+263 71 4108251,15.7,Moderate,5,2025-06-23
+Rutendo Makoni,20,+263 77 4175592,"Unit L Seke, Chitungwiza",2024-10-16,Ruvimbo Sibanda,+263 71 1995379,32.3,Moderate,8,2025-06-09
+Rutendo Makoni,21,+263 77 2860643,"Senga, Gweru",2024-09-22,Simba Chirwa,+263 71 2880130,35.7,Low,4,2025-06-19
+Tsitsi Moyo,27,+263 77 7735720,"Cowdray Park, Bulawayo",2025-03-01,Tsitsi Moyo,+263 71 5388763,12.9,High,4,2025-06-17
+Farai Chikafu,39,+263 77 5879579,"Mufakose, Harare",2025-03-01,Simba Sibanda,+263 71 9129612,12.9,Low,0,2025-06-29
+Tsitsi Chikafu,29,+263 77 9770161,"Mufakose, Harare",2024-12-29,Tendai Chirwa,+263 71 4621060,21.7,High,6,2025-06-14
+Farai Sibanda,30,+263 77 5037959,"Zimre Park, Ruwa",2025-01-15,Chenai Moyo,+263 71 2262822,19.3,Moderate,8,2025-06-08
+Nyasha Gondo,36,+263 77 1154162,"Mbare, Harare",2025-01-23,Tatenda Chikafu,+263 71 7807947,18.1,High,6,2025-06-26
+Tsitsi Ncube,40,+263 77 4743053,"Waterfalls, Harare",2024-11-22,Tatenda Sibanda,+263 71 3170357,27.0,High,4,2025-06-12
+Simba Dube,42,+263 77 9913525,"Waterfalls, Harare",2024-09-07,Tendai Chiwenga,+263 71 5500418,37.9,High,5,2025-06-24
+Simba Sibanda,25,+263 77 6773505,"Mufakose, Harare",2025-03-19,Tatenda Tshuma,+263 71 3689059,10.3,Moderate,2,2025-06-07
+Kuda Chiwenga,44,+263 77 7452599,"Mufakose, Harare",2024-10-17,Chenai Chikafu,+263 71 9121518,32.1,Moderate,3,2025-06-15
+Kuda Chirwa,43,+263 77 9950142,"Waterfalls, Harare",2024-10-17,Simba Sibanda,+263 71 5798062,32.1,Moderate,2,2025-06-07
+Tsitsi Moyo,19,+263 77 9059419,"Mpopoma, Bulawayo",2025-03-29,Simba Sibanda,+263 71 4215578,8.9,Moderate,5,2025-06-29
+Rutendo Chikafu,28,+263 77 2244701,"Cowdray Park, Bulawayo",2025-04-21,Nyasha Dube,+263 71 9169859,5.6,Low,8,2025-06-08
+Kuda Chiwenga,25,+263 77 8450220,"Mpopoma, Bulawayo",2025-01-16,Rutendo Makoni,+263 71 6931960,19.1,Moderate,3,2025-06-06
+Tatenda Ncube,43,+263 77 2060006,"Mbare, Harare",2025-04-19,Nyasha Chikafu,+263 71 8036470,5.9,Moderate,8,2025-06-19
+Ruvimbo Moyo,23,+263 77 4251537,"Mufakose, Harare",2024-10-06,Kuda Dube,+263 71 6358259,33.7,Moderate,4,2025-06-28
+Nyasha Tshuma,34,+263 77 8137934,"Mpopoma, Bulawayo",2024-09-23,Chenai Chirwa,+263 71 7194677,35.6,High,8,2025-06-24
+Farai Chiwenga,37,+263 77 2582645,"Cowdray Park, Bulawayo",2024-12-15,Tatenda Makoni,+263 71 1763534,23.7,High,0,2025-06-13
+Kuda Moyo,23,+263 77 2913969,"Senga, Gweru",2024-12-12,Kuda Chiwenga,+263 71 6801365,24.1,High,7,2025-06-07
+Farai Chikafu,19,+263 77 4712832,"Mpopoma, Bulawayo",2025-01-27,Farai Ncube,+263 71 6602952,17.6,Low,7,2025-06-26
+Kuda Gondo,32,+263 77 4928491,"Senga, Gweru",2024-11-20,Simba Chirwa,+263 71 5173939,27.3,High,7,2025-06-20
+Simba Chirwa,40,+263 77 6990836,"Mufakose, Harare",2024-11-19,Simba Chiwenga,+263 71 4201883,27.4,High,8,2025-06-21
+Tendai Chiwenga,35,+263 77 5753259,"Mufakose, Harare",2024-12-05,Kuda Makoni,+263 71 4138810,25.1,Moderate,4,2025-06-07

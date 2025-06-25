@@ -1,0 +1,38 @@
+<!-- app/templates/calendar.html -->
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Appointments Calendar</h2>
+
+  <div id="calendar"></div>
+</div>
+
+<!-- FullCalendar CSS & JS from CDN -->
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      height: 650,
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      },
+      events: '/appointments/calendar/events',
+      eventColor: '#378006',
+      eventDisplay: 'block',
+      eventMouseEnter: function(info) {
+        info.el.style.cursor = 'pointer';
+      }
+    });
+
+    calendar.render();
+  });
+</script>
+{% endblock %}

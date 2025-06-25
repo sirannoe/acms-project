@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Edit Patient Information</h2>
+    <form method="POST" class="mt-4">
+        <div class="form-group">
+            <label>Full Name</label>
+            <input name="name" value="{{ patient.name }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Age</label>
+            <input name="age" type="number" value="{{ patient.age }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input name="phone" value="{{ patient.phone }}" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <input name="address" value="{{ patient.address }}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Last Menstrual Period (LMP)</label>
+            <input name="last_menstrual_period" type="date" value="{{ patient.lmp_date }}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Gestational Age (weeks)</label>
+            <input name="gestational_age" type="number" value="{{ patient.gestational_age }}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Risk Level</label>
+            <select name="risk_level" class="form-control">
+                <option value="Low" {% if patient.risk_level == 'Low' %}selected{% endif %}>Low</option>
+                <option value="Medium" {% if patient.risk_level == 'Medium' %}selected{% endif %}>Medium</option>
+                <option value="High" {% if patient.risk_level == 'High' %}selected{% endif %}>High</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Emergency Contact Name</label>
+            <input name="emergency_contact" value="{{ patient.emergency_contact_name }}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Emergency Contact Phone</label>
+            <input name="emergency_phone" value="{{ patient.emergency_contactphone }}" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Update Patient</button>
+        <a href="{{ url_for('patients.patients') }}" class="btn btn-secondary ml-2">Cancel</a>
+    </form>
+</div>
+{% endblock %}
